@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    
+    <script>
+        var person = {}
+        person.name = "egoing"
+        person.introduce = function(){
+            return 'My name is ' + this.name;
+        }
+        alert(person.introduce());
+    </script>
+    
+
+    <script>
+        var person = {
+            'name': 'egoing',
+            'introduce': function () {
+                return 'My name is ' + this.name;
+            }
+        }
+        document.write(person.introduce());
+    </script>
+
+
+<script>
+    function Person() { }
+    var p = new Person();
+     p.name = 'egoing';
+    p.introduce = function () {
+        return 'My name is ' + this.name;
+    }
+    alert(p.introduce());
+</script>
+
+
+<script>
+    function Person() {}
+    var p1 = new Person(); //생성자 생성(객체의 생성자)
+    p1.name = "egoing";
+    p1.introduce = function(){
+        return 'MY name is ' + this.name; //this는 p1 객체를 가르킴
+    }
+    alert(p1.introduce());
+
+    function Person() {}
+    var p2 = new Person();
+    p2.name = "leezche";
+    p2.introduce = function(){
+        return 'MY name is ' + this.name;
+    }
+    alert(p2.introduce());
+</script>
+
+
+<script>
+    function Person(name){
+        this.name = name;
+        this.introduce = function(){
+            return 'MY name is ' + this.name;
+        }
+    }
+
+    var p1 = new Person('egoing');
+    alert(p1.introduce());
+
+    var p2 = new Person('leezche');
+    alert(p2.introduce());
+</script>
+</body>1
+</html>

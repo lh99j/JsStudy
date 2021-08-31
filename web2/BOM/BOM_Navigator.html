@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+    
+    <script>
+        console.dir(navigator.appName); //웹브라우저의 이름 
+        console.dir(navigator.appVersion); //브라우저의 버전
+        console.dir(navigator.userAgent); //브라우저가 서버측으로 전송하는 USER-AGENT-HTTP 헤더의 내용, appVersion과 비슷
+        console.dir(navigator.platform); //브라우저가 사용하고있는 운영체제
+    </script>
+
+
+    <script> //기능테스트
+        if(!Object.keys){  // Object라는 객체가 keys라는 메소드를 가지고 있지 않다면 if문 실행
+            Object.keys = (function(){ // keys라는 메소드를 가지고있지않다면 기능추가
+                'use strict';
+                var hasOwnProperty = Object.prototype.hasOwnProperty,
+                hasDontEnumBug = !({toString : nill}).propertyIsEnumerable('toString'),
+                dontEnums = [
+                    'toString',
+                    'toLocaleString',
+                    'valueOf',
+                    'hasOwnProperty',
+                    'isPrototypeOf',
+                    'propertyIsEnumerable',
+                    'constructor'
+                ],
+                dontEnumsLength = dontEnums.length;
+            }) 
+        }
+    </script>
+
+</body>
+크로스 브라우징 : 웹 페이지 제작 시에 모든 브라우저에서 깨지지 않고 
+의도한 대로 올바르게(호환성) 나오게 하는 작업을 말한다.
+크로스 브라우징이 필요한 이유 : 브라우저마다 랜더링 엔진이 달라서
+</html>

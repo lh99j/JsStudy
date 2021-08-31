@@ -1,0 +1,63 @@
+fieldset {  
+    margin-top:70px;
+    margin-bottom:20px;
+    height: 500px;
+    width: 400px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid black; 
+    border-radius: 5px;
+  }
+  h1{
+    display: table; 
+    margin-left: auto;
+    margin-right: auto; 
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    
+  }
+  ul { 
+    list-style:none; 
+    padding-left:150;   
+    display: table; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #login li label {  
+    width:80px;  
+    float:left;  
+    text-align:left;    
+   }
+   li {
+       margin-top: 10px;
+   }
+   input[type="text"],input[type="password"] {
+       width: 320px;
+       height: 40px;
+       background-color:rgb(238, 235, 235);  
+       border:2px solid rgb(204, 204, 204);
+       
+   }
+   input[type="submit"] {
+    text-align: center;
+    width: 320px;  
+    height: 35px;     
+    background-color:#b6a4f8;  
+    border:2px solid rgb(204, 204, 204); 
+    display: table;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 20px;
+  }
+  hr {
+     margin-top: 30px;
+     width: 90%;
+  }
+   div {  
+    margin-top: 30px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto; 
+    text-align: center;
+  }

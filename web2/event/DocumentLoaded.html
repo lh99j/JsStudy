@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script>
+        var t = document.getElementById('target');
+        console.log(t);
+    </script>
+</head>
+<body>  
+
+    이 코드를 실행하면 Null이 나옴 >> head태그안에 scrip에서 아직 body태그안에있는 p태그가 만들어 지지 않았기에 NULL값이 출력됨
+
+    웹페이지를 프로그래밍적으로 제어하기 위해서는 웹페이지의 모든 요소에 대한 처리가 끝나야 함. 이것을 알려주는 이벤트가 load, DOMContentLoaded이다.
+
+    <p id="target">Hello</p>
+
+ 
+    이것을 해결하기 위해서는
+
+
+
+    <p id="target">Hello</p>
+
+    <script>
+        var t = document.getElementById('target');
+        console.log(t);
+    </script>
+
+    이처럼 코드를 변경하거나
+    
+    <head>
+        <script>
+            window.addEventListener('load', function(){
+                var t = document.getElementById('target');
+                console.log(t);
+            })
+        </script>
+    </head>
+
+    <body>
+        <p id="target">Hello</p>
+    </body>
+
+    이렇게 load를 써야함
+
+    그런데 load 이벤트는 문서내의 모든 리소스(이미지, 스크립트)의 다운로드가 끝난 후에 실행된다. 이것을 에플리케이션의 구동이 너무 지연되는 부작용을 초래할 수 있다.
+
+        
+    DOMContentLoaded는 문서에서 스크립트 작업을 할 수 있을 때 실행되기 때문에 이미지 다운로드를 기다릴 필요가 없다.
+
+    <html>
+    <head>
+        <script>
+            window.addEventListener('load', function(){
+                console.log('load');
+            })
+            window.addEventListener('DOMContentLoaded', function(){
+                console.log('DOMContentLoaded');
+            })
+        </script>
+
+    </head>
+    <body>
+        <p id="target">Hello</p>
+    </body>
+    </html>
+
+</body>
+</html>

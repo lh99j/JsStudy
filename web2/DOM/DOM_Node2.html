@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+___________________________________________문자열로 노드 제어___________________________________________
+
+innerHTML : innerHTML는 문자열로 자식 노드를 만들 수 있는 기능을 제공한다. 또한 자식 노드의 값을 읽어올 수도 있다. 
+
+    <ul id="target">
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+
+    <input type="button" onclick="get();" value="get" />
+    <input type="button" onclick="set();" value="set" />
+
+    <script>
+        function get(){
+            var target = document.getElementById('target');
+            alert(target.innerHTML); //id가 target인 element의 하위 element를 읽어옴 >>  <li>HTML</li> <li>CSS</li>
+        }
+        function set(){
+            var target = document.getElementById('target');
+            target.innerHTML = "<li>JavaScript Core</li><li>BOM</li><li>DOM</li>"; //id가 target인 element에 하위 element("...") 를 추가
+        }
+    </script>
+
+
+outerHTML : uterHTML은 선택한 엘리먼트를 포함해서 처리된다.
+
+    <ul id="target">
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+
+    <input type="button" onclick="get();" value="get" />
+    <input type="button" onclick="set();" value="set" />
+
+    <script>
+        function get() {
+            var target = document.getElementById('target');
+            alert(target.outerHTML); // id가 target인 element를 출력(하위 element 포함)
+        }
+        function set() {
+            var target = document.getElementById('target');
+            target.outerHTML = "<ol><li>JavaScript Core</li><li>BOM</li><li>DOM</li></ol>"; // innerHTML과는 다르게 <ul></ul> 태그 전체를 "..."으로 변경
+        }
+    </script>
+
+
+innerText, outerText : HTML 코드를 제외한 문자열을 리턴하고, 값을 변경할 때는 HTML의 코드를 그대로 추가한다.
+
+    <ul id="target">
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+
+    <input type="button" onclick="get();" value="get" />
+    <input type="button" onclick="set();" value="set" />
+
+    <script>
+        function get() {
+            var target = document.getElementById('target');
+            alert(target.innerText);  // HTML 태그 없이 text만 출력
+        }
+        function set() {
+            var target = document.getElementById('target');
+            target.innerText = "<li>JavaScript Core</li><li>BOM</li><li>DOM</li>"; //기존 HTML 태그는 유지한체 text부분을 "..."으로 변경
+        }
+    </script>
+
+
+insertAdjacentHTML() : 좀 더 정교하게 문자열을 이용해서 노드를 변경하고 싶을 때 사용한다.
+
+    <ul id="target">
+        <li>CSS</li>
+    </ul>
+
+    <input type="button" onclick="beforebegin();" value="beforebegin" />
+    <input type="button" onclick="afterbegin();" value="afterbegin" />
+    <input type="button" onclick="beforeend();" value="beforeend" />
+    <input type="button" onclick="afterend();" value="afterend" />
+
+    <script>
+        function beforebegin() {
+            var target = document.getElementById('target');
+            target.insertAdjacentHTML('beforebegin', '<h1>Client Side</h1>'); // 코드가 등장하기전 >> <ul></ul>바로 위에
+        }
+        function afterbegin() {
+            var target = document.getElementById('target');
+            target.insertAdjacentHTML('afterbegin', '<li>HTML</li>'); //코드가 등장후 >> <ul></ul> 안쪽 젤위에 추가
+        }
+        function beforeend() {
+            var target = document.getElementById('target');
+            target.insertAdjacentHTML('beforeend', '<li>JavaScript</li>'); // 코드가 끝나기전 >> <ul></ul>코드 안에 제일 마지막에 추가
+        }
+        function afterend() {
+            var target = document.getElementById('target');
+            target.insertAdjacentHTML('afterend', '<h1>Server Side</h1>'); //코드가 끝난 후 >> <ul></ul>아래에 추가
+        }
+    </script>
+
+</body>
+</html>

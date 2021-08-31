@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+
+    GET 방식
+
+    ○ URL에 정보가 담겨서 전송된다.
+    ○ 전송할 수 있는 정보의 길이가 제한되어 있다.
+    ○ 퍼머링크로 사용될 수 있다.
+
+
+    POST방식
+
+    ○ header의 body에 담겨서 전송된다.
+    ○ URL 상에 전달한 정보가 표시되지 않는다.
+    ○ GET에 비해서 보안상 약간의 우위에 있다. (사실상 동일하다)
+    ○ 전송할 수 있는 데이터의 길이 제한이 없다.
+    ○ 퍼머링크로 사용할 수 없다.
+    ○ 서버 쪽에 어떤 작업을 명령할 때 사용한다.
+    ○ (데이터의 기록, 삭제, 수정 등)
+
+
+
+
+
+    __________________XMLHttpRequest__________________
+
+    <p>time : <span id="time"></span></p>
+    <input type="button" id="execute" value="execute" />
+
+    <script>
+        document.querySelector('input').addEventListener('click', function (event) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', './time.php'); //서버와 통신할 때 GET방식으로 함, 서버의 URL : ./time.php
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // readyState는 통신의 현재 상태를 알려줌. 4는 통신이 완료되었음을 의미 / status는 HTTP 통신의 결과를 의미하는데 200은 통신이 성공했음을 의미 
+                    document.querySelector('#time').innerHTML = xhr.responseText; //id가 time인 element에 innerHTML로 서버에서 리턴해온 정보(responseText)를 넣음.
+                }
+            }
+
+            xhr.send();
+        }); 
+    </script>
+
+
+
+    __________________POST 방식__________________
+    아래 예제는 시간대와 시간의 출력 형식을 지정하는 예제다. 
+
+
+    <p>time : <span id="time"></span></p>
+
+    <select id="timezone">
+        <option value="Asia/Seoul">asia/seoul</option>
+        <option value="America/New_York">America/New_York</option>
+    </select>
+
+    <select id="format">
+        <option value="Y-m-d H:i:s">Y-m-d H:i:s</option>
+        <option value="Y-m-d">Y-m-d</option>
+    </select>
+
+    <input type="button" id="execute" value="execute" />
+
+    <script>
+        document.querySelector('input').addEventListener('click', function (event) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', './time2.php');
+            xhr.onreadystatechange = function () {
+                document.querySelector('#time').innerHTML = xhr.responseText;
+            }
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // 서버로 전송할 데이터 타입의 형식(MIME)을 지정
+            var data = '';
+            data += 'timezone=' + document.getElementById('timezone').value; // 서버로 전송할 데이터를 형식에 맞게 만듬. 이름=값&이름=값... 의 형식을 지켜야 함.
+            data += '&format=' + document.getElementById('format').value;
+            xhr.send(data); // send 메소드의 인자로 전송할 데이터를 전달.
+        });
+    </script>
+
+</body>
+</html>

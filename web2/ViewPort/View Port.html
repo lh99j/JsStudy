@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+    
+        #target {
+            width: 100px;
+            height: 100px;
+            border: 50px solid #1065e6;
+            padding: 50px;
+            margin: 50px;
+        }
+    </style>
+
+    <div id="target">
+        Coding
+    </div>
+
+    <script>
+        var t = document.getElementById('target');
+        console.log(t.getBoundingClientRect()); //DOMRect라는 객체로 결과가 나옴(객체 안에는 element에 대한 위치정보가 담겨있음)
+    </script>
+
+    _______elemeent를 중첩 시켰을떄_______
+
+    <style>
+        body{
+            padding:0;
+            margin:0;
+        }
+        div{
+            border:50px solid #1065e6;
+            padding:50px;
+            margin:50px;
+        }
+        #target{
+            width:100px;
+            height:100px;
+        }
+    </style>
+
+    <div>
+        <div id="target">
+            Coding
+        </div>
+    </div>
+
+    <script>
+    var t = document.getElementById('target');
+    console.log(t.getBoundingClientRect()); // 엘리먼트의 위치를 의미하는 top, right의 값을 통해서 기준이 그 부모가 아니라 body라는 것을 알 수 있다
+    console.log(t.offsetParent); // 측정의 기준을 알려줌 >> body element 
+    //만약 부모 중 CSS position의 값이 static인 td, th, table 엘리먼트가 있다면 이 엘리먼트가 offsetParent가 된다.  
+    </script>
+
+ ___________________________________________ViewPort___________________________________________
+ 문서가 브라우저의 크기보다 큰 경우는 스크롤이 만들어지는데 스크롤에 따라서 위치의 값이 달라지기 때문이다. 
+ 이를 이해하기 위해서는 우선 viewport에 대한 이해가 선행되어야 한다. 
+ 뷰포트는 문서의 내용 중 사용자에게 보여주는 영역을 의미한다. 
+ 이에 따라서 문서의 좌표가 있고 뷰포트의 자표가 있다.
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            border: 50px solid #1065e6;
+            padding: 50px;
+            margin: 50px;
+        }
+
+        #target {
+            width: 100px;
+            height: 2000px;
+        }
+    </style>
+
+    <div>
+        <div id="target">
+            Coding
+        </div>
+    </div>
+
+    <script>
+        var t = document.getElementById('target');
+        setInterval(function () {
+            console.log('getBoundingClientRect : ', t.getBoundingClientRect().top, 'pageYOffset:', window.pageYOffset); 
+            // t.getBoundingClientRect.top : body element의 top 위치 값(View port 에서부터 body element까지의 거리) >> View Port의 좌표
+            // pageYOffset 스크롤을 움직일때 몇px 움직였는지 알려줌 ,  문서의 시작점(element와 body태그 까지의 거리) = View Port + pageYOffset
+        }, 1000) //setInterval >> 1000(1초)에 한번씩 인자를 실행
+    </script>
+
+
+
+______________스크롤 제어______________
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            border: 50px solid #1065e6;
+            padding: 50px;
+            margin: 50px;
+        }
+
+        #target {
+            width: 100px;
+            height: 2000px;
+        }
+    </style>
+
+    <input type="button" id="scrollBtn" value="scroll(0, 1000)" />
+
+    <script>
+        document.getElementById('scrollBtn').addEventListener('click', function () {
+            window.scrollTo(0, 1000); //id가 scrollBnt인 element를 클릭했을 때 scrollTo 의 첫번째 인자(x), 두번쨰 인자(y)의 위치로 스크롤을 이동시킴
+        })
+    </script>
+    <div>
+        <div id="target">
+            Coding
+        </div>
+    </div>
+
+
+
+    ______________스크린 크기______________
+
+    <script>
+        console.log('window.innerWidth:', window.innerWidth, 'window.innerHeight:', window.innerHeight); //innerWidth : 가로 view Port크기 , innerHeight : 세로 view Port 크기
+        console.log('screen.width:', screen.width, 'screen.height:', screen.height); // 사용자의 모니터의 크기
+    </script>
+</body> 
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    ______________________jQuery 노드 추가 API______________________
+    <div class="target">
+        content1
+    </div>
+    
+    <div class="target">
+        content2
+    </div>
+    
+    <script>
+        $('.target').before('<div>before</div>');
+        $('.target').after('<div>after</div>');
+        $('.target').prepend('<div>prepend</div>');
+        $('.target').append('<div>append</div>');
+    </script>
+
+
+
+
+______________________jQuery 노드 제거 API______________________
+제거와 관련된 API는 remove와 empty가 있다. 
+remove는 선택된 엘리먼트를 제거하는 것이고 empty는 선택된 엘리먼트의 텍스트 노드를 제거하는 것이다. 
+
+    <div class="target" id="target1">
+        target 1
+    </div>
+
+    <div class="target" id="target2">
+        target 2
+    </div>
+
+    <input type="button" value="remove target 1" id="btn1" />
+    <input type="button" value="empty target 2" id="btn2" />
+    <script>
+        $('#btn1').click(function () {
+            $('#target1').remove();
+        })
+        $('#btn2').click(function () {
+            $('#target2').empty();
+        })
+    </script>
+
+
+
+
+___________________________jQuery 노드 변경 API___________________________
+replaceAll과 replaceWith는 모두 노드의 내용을 교체하는 API이다. 
+replaceWith가 제어 대상을 먼저 지정하는 것에 반해서 replaceAll은 제어 대상을 인자로 전달한다. 
+
+    <div class="target" id="target1">
+        target 1
+    </div>
+
+    <div class="target" id="target2">
+        target 2
+    </div>
+
+    <input type="button" value="replaceAll target 1" id="btn1" />
+    <input type="button" value="replaceWith target 2" id="btn2" />
+
+    <script>
+        $('#btn1').click(function () {
+            $('<div>replaceAll</div>').replaceAll('#target1');  // id가 target1인 element를 첫번째인자(<div>replaceAll</div>) 으로 변경
+        })
+        $('#btn2').click(function () {
+            $('#target2').replaceWith('<div>replaceWith</div>'); //id 가 target2인 element를 두번째 인자(<div>replaceWith</div>)로 변경
+        })
+    </script>
+
+
+
+
+___________________________jQuery 노드 복사 API___________________________
+
+    <div class="target" id="target1">
+        target 1
+    </div>
+
+    <div class="target" id="target2">
+        target 2
+    </div>
+
+    <div id="source">source</div>
+
+    <input type="button" value="clone replaceAll target 1" id="btn1" />
+    <input type="button" value="clone replaceWith target 2" id="btn2" />
+
+    <script>
+        $('#btn1').click(function () {
+            $('#source').clone().replaceAll('#target1'); //id가 source인 element를 복사함. 그후 두번째 인자의 값을 첫번째 인자값으로 변경
+        })
+        $('#btn2').click(function () {
+            $('#target2').replaceWith($('#source').clone()); // 첫번째 인자의 값을 두번째 인자의 값으로 변경 (두번쨰 인자의 값은 복사됨)
+        })
+    </script>
+
+
+
+___________________________jQuery 노드 이동 API___________________________
+
+    <div class="target" id="target1">
+        target 1
+    </div>
+
+    <div id="source">source</div>
+
+    <input type="button" value="append source to target 1" id="btn1" />
+
+    <script>
+        $('#btn1').click(function () {
+            $('#target1').append($('#source')); //id가 source인 element의 값을 id가 target1인 element로 이동시킴(append : content 아래)
+        })
+    </script>
+
+</body>
+
+before
+prepend
+content1
+append
+after
+
+</html>

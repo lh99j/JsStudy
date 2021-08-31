@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+    
+    <script>
+        function func(){
+            if(window === this){
+                alert("window === this");
+            }
+        }
+        func();
+    </script>
+
+
+    <script>
+        var o = {
+            func : function(){
+                if(o === this){
+                    alert("o === this");
+                }
+            }
+        }
+        o.func();
+    </script>
+
+
+    <script>
+        var funcThis = null;
+
+        function Func(){
+            funcThis = this;
+        }
+        var o1 = Func();
+        if(funcThis === window){
+            alert('window');
+        }
+
+        var o2 = new Func();
+        if(funcThis === o2){
+            alert('o2')
+        }
+    </script>
+
+
+    <script>
+        var o = {}
+        var p = {}
+        function func(){
+            switch(this){
+                case o:
+                    alert('o');
+                    break;
+                case p:
+                    alert('p');
+                    break;
+                case window:
+                    alert('window');
+                    break;
+            }
+        }
+        func();
+        func.apply(o);
+        func.apply(p);
+    </script>
+</body>
+this는 함수 내에서 함수 호출 맥락(context)를 의미한다.
+ 맥락이라는 것은 상황에 따라서 달라진다는 의미인데 즉 함수를 어떻게 호출하느냐에 따라서 this가 가리키는 대상이 달라진다는 뜻이다. 
+ 함수와 객체의 관계가 느슨한 자바스크립트에서 this는 이 둘을 연결시켜주는 실질적인 연결점의 역할을 한다.
+</html>

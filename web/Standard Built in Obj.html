@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    
+?
+
+    <script>
+        Array.prototype.random = function(){
+            var index = Math.floor(this.length * Math.random());
+            return this[index];
+        }
+        var arr = new Array('seoul', 'new york', 'ladarkhnb', 'pusan', 'Tsukuba');
+        alert(arr.random());
+    </script>
+
+</body>
+</html>

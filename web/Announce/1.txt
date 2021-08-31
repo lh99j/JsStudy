@@ -1,0 +1,109 @@
+자바스크립트에서 함수는 1급 객체
+
+1급객체란 
+
+              변수를 담을수 있음
+// 변수에 함수 할당
+var bar = fucntion() { return 'javscript'; };
+console.log(bar()); // javascript
+
+파라미터로 전달 가능
+
+function first(a,b,callback){
+	let v=a*b;
+	callback(v);
+}
+
+first(1,2,function(v){
+	console.log(v);		//2
+})
+
+
+반환값(return value)으로 사용할 수 있다.
+
+// 함수를 리턴하는 test() 함수
+function test() {
+   return function() {
+       console.log('javscript');
+   }
+}
+
+var bar = test();
+bar();
+
+
+JavaScript에서는 이런 특성 때문에 숫자와 문자처럼 함수를 변수에 저장거나, 
+파라미터로 전달하고, 함수의 리턴값으로도 사용할 수가 있는 것이다.
+
+JavaScript의 함수가 일급 객체이기 때문에 할 수 있는 것
+
+콜백 패턴 을 사용할 수 있다.
+고차함수(High-order function) 를 만들 수 있다.
+Javascript의 클로저(closure) 를 사용해커링(currying) 과 메모이제이션(memoization) 이 가능하다.
+
+
+간단히 말해서 
+1. 변수나 데이터안에 담길 수 있고
+
+2. 매개변수로 전달 할 수 있고
+
+3. 반환 값으로 사용할 수 있고
+
+4. 실행도중에 생성될 수 있다
+
+콜백은 2번째 특징을 활용한 것 
+
+
+콜백함수는 간단하게 다른 함수에 매개변수로 넘겨준 함수를 말한다.
+
+매개변수로 넘겨받은 함수는 일단 넘겨받고, 때가 되면 나중에 호출(called back)한다는 것이 콜백함수의 개념이다.
+
+
+function checkGang(count, link, good) {
+  count < 3 ? link() : good();
+}
+
+function linkGang() {
+  console.log('1일 3깡은 기본입니다. 아래 링크를 통해 깡을 시청해주세요');
+  console.log('https://youtu.be/xqFvYsy4wE4');
+}
+
+function goodGang() {
+  console.log('오늘 할당량은 모두 채우셨습니다! :)')
+}
+
+checkGang(2, linkGang, goodGang);
+
+
+콜백함수가 필요한 이유
+
+
+콜백함수 사용시 콜백지옥으로 가는등 가독성이 떨어질수있음 
+이때 사용하는 것이 promise, Async
+
+콜백 : 우리가 전달해온 함수를 나중에 불러줘!
+
+동기 비동기 
+
+동기 
+console.log('1');
+console.log('2');
+console.log('3');
+// 1
+2
+3
+
+
+비동기
+
+console.log('1');
+setTimeout(function() {
+console.log('2');
+},1000);   //1000m/s가 1초
+console.log('3');
+
+//
+1
+3
+//1초뒤에
+2

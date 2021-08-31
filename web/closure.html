@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+</head>
+
+<script>
+    function outter(){
+        function inner(){
+            var title = 'coding everybody';
+            alert(title);
+        }
+        inner();
+    }
+    outter();
+</script>
+
+
+<script>
+    function outter(){
+        var title = 'coding everyday';
+        return function(){
+            alert(title);
+        }
+    }
+    inner = outter();
+    inner();
+</script>
+
+<script>
+    function factory_movie(title){
+        return{
+            get_title   : function(){
+                return title;
+            },
+            set_title : function(_title){
+                title = _title;
+            }
+        }
+    }
+    ghost = factory_movie('Ghost in the shell');
+    matrix = factory_movie('Matrix');
+    alert(ghost.get_title());
+    alert(matrix.get_title());
+
+    ghost.set_title('공각기동대');
+    alert(ghost.get_title());
+    alert(matrix.get_title());
+
+</script>
+
+
+<script>
+    var arr = [];
+    for (var i = 0; i < 5; i++){
+        arr[i] = function(id){  
+            return function(){
+                return id;
+            }
+        }(i);
+    }
+    for(var index in arr){
+        console.log(arr[index]());
+    }
+</script>
+<body>
+    
+</body> 
+클로저 : 내부함수가 외부함수의 맥락(context)에 접근할 수 있는  것을 가르친다.
+클로저는 자바스크립트를 이용한 고난이도의 테크닉을 구상하는데 필수적인 개념으로 활용된다.
+</html>

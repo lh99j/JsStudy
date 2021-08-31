@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+
+</head>
+<body>
+    __________________________Text 객체 __________________________
+    텍스트 객체는 텍스트 노드에 대한 DOM 객체로 CharcterData를 상속 받는다. 
+    아래는 텍스트 노드를 찾는 예제다. 주목할 것은 DOM에서는 공백이나 줄바꿈도 텍스트 노드라는 점이다.
+
+
+    <p id="target1"><span>Hello world</span></p>
+    <p id="target2">
+        <span>Hello world</span>
+    </p>
+
+    <script>
+        var t1 = document.getElementById('target1').firstChild; //span element
+        var t2 = document.getElementById('target2').firstChild; // #text
+    </script>
+
+
+    _____________값 API______________
+
+    <ul>
+        <li id="target">html</li>
+        <li>css</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <script>
+        var t = document.getElementById('target').firstChild; //"HTML"
+        console.log(t.nodeValue); // "HTML"
+        console.log(t.data);  // "HTML"x`
+    </script>
+
+
+
+    _____________조작 API_____________
+
+    <style>
+        #target{
+            font-size:77px;
+            font-family: georgia;
+            border-bottom:1px solid black;
+            padding-bottom:10px;
+        }
+        p{
+            margin:5px;
+        }
+    </style>
+
+    <p id="target">Cording everybody!</p>
+    <p> data : <input type="text" id="datasource" value="JavaScript" /></p>
+    <p> start :<input type="text" id="start" value="5" /></p>
+    <p> end : <input type="text" id="end" value="5" /></p>
+    
+    <p><input type="button" value="appendData(data)" onclick="callAppendData()" />
+        <input type="button" value="deleteData(start,end)" onclick="callDeleteData()" />
+        <input type="button" value="insertData(start,data)" onclick="callInsertData()" />
+        <input type="button" value="replaceData(start,end,data)" onclick="callReplaceData()" />
+        <input type="button" value="substringData(start,end)" onclick="callSubstringData()" />
+    </p>
+
+    <script>
+        var target = document.getElementById('target').firstChild; // "Cording everybody"
+        var data = document.getElementById('datasource');
+        var start = document.getElementById('start');
+        var end = document.getElementById('end');
+
+        function callAppendData() {
+            target.appendData(data.value);  // data(id가 datasource인 element)의 value(JavaScript)를 append위치로 추가시킴 >> "Coding Everybody!JavaScript"
+        }
+        function callDeleteData() {
+            target.deleteData(start.value, end.value); //start.value(id가 start인 element의 value : 5)번째 자리부터 end.value(5)글자를 지운다 >> "Codierybody!"
+        }
+        function callInsertData() {
+            target.insertData(start.value, data.value); //start.value(5)번째 자리에 data.value("JavaScript")를 추가시킴
+        }
+        function callReplaceData() {
+            target.replaceData(start.value, end.value, data.value); // start.value(5)번째 자리에서 부터 end.value(5)글자를 data.value로 바꿈
+        }
+        function callSubstringData() {
+            alert(target.substringData(start.value, end.value)); // start.value번째 자리부터 end.value글자를 alert함 
+        }
+    </script>
+
+</body>
+</html>

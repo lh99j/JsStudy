@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <script type="module">
+    import { IndefiniteObservable } from "https://ajax.googleapis.com/ajax/libs/indefinite-observable/2.0.1/indefinite-observable.bundle.js";
+    </script>
+    <script src="color.js"></script>
+    <title></title>
+</head>
+<body>
+<script>
+    function abcde(self){
+        var b = document.querySelector('body');
+        if(self.value === 'night'){
+            b.style.backgroundColor = 'black';
+            b.style.color = 'white';
+            self.value = 'day';
+            var alist = document.querySelectorAll('a');
+                    var i = 0;
+                    while(i < alist.length){
+                        alist[i].style.color = 'powderblue';
+                        i++;
+                    }
+        }
+        else{
+            b.style.backgroundColor = 'white';
+            b.style.color='black';
+            self.value = 'night';
+            var alist = document.querySelectorAll('a');
+                    var i = 0;
+                    while(i < alist.length){
+                        alist[i].style.color = 'powderblue';
+                        i++;
+                    }
+        }  
+    }
+</script>
+    가나다라마바사
+    <input type="button" value="night" onclick="
+    abcde(this);
+">  
+
+<ul>
+    <script>
+        var list = ["개미","호랑이","고양이"]
+        var i = 0;
+        while(i < list.length){
+        document.write('<li>'+list[i]+'</li>');
+        i++;
+        }
+    </script>
+</ul>
+
+<script>
+
+function sum(x,y){
+    document.write(x + y+'<br>');
+}
+sum(2,3);
+sum(5,6);
+</script>
+
+<script>
+function sum1(x,y){
+    document.write('<div style ="color:red">'+x + y+'</div>');
+}
+sum1(2,3);
+sum1(5,6);
+</script>
+
+
+<script>
+    function sum3(x,y){
+        return x + y;
+    }
+    document.write('<div style="color:red">'+sum3(2,3)+'</div>');
+    document.write('<div style="font-size:30px">'+sum3(4,8)+'</div>');
+    </script>   
+
+
+</body> 
+</html>

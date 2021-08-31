@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+    <input type="button" value="alert" onclick="alertfunc();" />
+    <script>
+        function alertfunc(){
+            alert(1);    //확인을 누르기 전까지 다음 로직 작동 x
+            alert(2);
+            alert(3);
+        }
+    </script>
+
+
+    <input type="button" value="confirm" onclick="func_confirm();" />
+    <script>
+        function func_confirm(){
+            if(confirm('ok?')){      //confirm 확인 = true, 취소 = false
+                alert('ok');
+            }else{
+                alert('cancel');
+            }
+        }
+    </script>
+
+
+    <input type="button" value="prompt" onclick="func_prompt();" />
+    <script>
+        function func_prompt(){
+            if(prompt('id?')==='egoing'){     
+                alert('Welcome');
+            }else{
+                alert('fail');
+            }
+        }
+    </script>
+
+    
+
+</body>
+<br>BOM(Browser Object Model)이란 웹브라우저의 창이나 프래임을 추상화해서 
+프로그래밍적으로 제어할 수 있도록 제공하는 수단이다. 
+BOM은 전역객체인 Window의 프로퍼티와 메소드들을 통해서 제어할 수 있다. 
+따라서 BOM에 대한 수업은 Window 객체의 프로퍼티와 메소드의 사용법을 
+배우는 것이라고 해도 과언이 아닐 것이다. 본 토픽의 하위 수업에서는 Window 객체의 사용법을 알아볼 것이다.
+</html>

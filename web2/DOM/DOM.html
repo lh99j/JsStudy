@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body> 
+    __________________제어 대상 찾기______________________
+                    <!-- getElementsByTagName -->
+    <ul>
+        <li>HTML</li>  <!-- 마치 <li style = "color:red">로 바꾸려고함 -->
+        <li>CSS</li>
+        <li>JavaSctipt</li>
+    </ul>
+
+    <script> //getElementsByTagName : 인자로 전달된 태그명에 해당하는 객체들을 찾아서 그 리스트를 NodeList라는 유사 배열에 담아서 반환한다.
+        var lis = document.getElementsByTagName('li'); //li태그들을 유사배열로 가져와서 lis에 담은것
+        for(var i = o; i < lis.length; i++){
+            lis[i].style.color = 'red';
+        }
+    </script>
+
+
+    <script>  //위에것은 모든 <li>들을 가져온것 <ul>안에 있는 <li>만 가져오려면 이렇게해야함
+        var ul = document.getElementsByTagName('ul')[0]; //모든 ul들을 가져와 유사배열안에 담고 값이0, 즉 첫번째 ul를 ul변수에 담음
+        var lis = ul.getElementsByTagName('li');
+        for(var i = o; i < lis.length; i++){
+            lis[i].style.color = 'red';
+        } 
+    </script>
+
+
+
+                    <!-- getElementsByClassName -->
+    <ul>
+        <li>HTML</li>
+        <li class="active">CSS</li> <!-- html에서 class는 JavaSctipt에서는 ClassName임 -->
+        <li class="active">JavaSctipt</li>
+    </ul>
+
+    <script>
+        var lis = document.getElementsByClassName('active'); //인자로 전달된(active) 값에 해당되는 clssname을 유사배열에 담음
+        for(var i = o; i < lis.length; i++){
+            lis[i].style.color = 'red';
+        }
+    </script>
+
+
+                    <!-- getElementById -->
+    <ul>
+        <li>HTML</li>
+        <li id="active">CSS</li> 
+        <li>JavaSctipt</li>
+    </ul>
+
+    <script>
+        var li = document.getElementById('active'); //id값이 active인 element를 조회에서 li 변수에 담음, 문서에 id는 특정한 element 하나만을 식별하는 유일한 식별자이기에 하나만 조회가 됨.
+        li.style.color = 'red';
+    </script>
+    
+    
+    <ul>
+        <li>HTML</li>
+        <li id="active">CSS</li> 
+        <li>JavaSctipt</li>
+    </ul>
+    <ol>
+        <li>HTML</li>
+        <li class="active">CSS</li> 
+        <li>JavaSctipt</li>
+    <ol>
+
+    <script>
+        var li = document.querySelector('li'); //li element 하나를 선택함
+        li.style.color = 'red';
+        var li = document.querySelector('.active'); //class값이 active인 element를 선택함
+        li.style.color = 'blue';
+    </script>
+
+    <script>
+        var lis = document.querySelectorAll('li'); //모든 li elements를 lis변수안에 유사배열로 담음
+        for(var name in lis){
+            lis[name].style.color = 'blue';
+        }
+    </script>
+</body>
+DOM : Document Object Model로 웹페이지를 자바스크립트로 제어하기 위한 객체 모델을 의미한다.
+window 객체의 document 프로퍼티를 통해서 사용할 수 있다. 
+Window 객체가 창을 의미한다면 Document 객체는 윈도우에 로드된 문서를 의미한다고 할 수 있다. 
+DOM의 하위 수업에서는 문서를 제어하는 방법에 대한 내용을 다룬다.
+</html>

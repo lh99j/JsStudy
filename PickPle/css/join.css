@@ -1,0 +1,62 @@
+fieldset {  
+    margin-bottom:20px;
+    height: 500px;
+    width: 400px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto; 
+    border: 3px solid black; 
+    border-radius: 5px; 
+  }
+  fieldset legend {  /* fieldset 요소의 하위 legend 요소에 적용할 스타일 */
+    font-weight:bold; 
+    font-size: 20px; /* 폰트 굵기 */
+  }
+ 
+  h1 {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Jua', sans-serif;
+    
+  }
+  ul { 
+    list-style:none;  /* 불릿 없애기 */
+    padding-left:150;  /* 왼쪽 패딩 */ 
+    display: table; /*목록 요소 자체를 가운데 정렬하기*/
+    margin-left: auto;
+    margin-right: auto;
+  }
+  li { 
+    margin:10px;  
+  }
+  #shipping li label {  
+    width:80px;  
+    float:left;  /* 좌우로 배치 */
+    text-align:left; /* 텍스트 왼쪽 정렬 */
+       
+   }
+   input[type="text"],input[type="password"],input[type="email"] {  
+    width:300px;
+    height:30px;
+    border: 2px solid black; 
+    border-radius: 5px; 
+  }
+   div {  
+    margin-top: 50px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto; 
+  }
+  input[type="submit"], input[type="reset"] {  
+    text-align:center;  
+    width:150px;  
+    height:40px;     
+    background-color:#fafafa;  
+    border:1px solid #ccc; 
+    box-shadow: 1px 1px 1px #ccc;  
+  }
+  input[type="submit"] {  
+    margin-right:20px;  
+  }     
+  

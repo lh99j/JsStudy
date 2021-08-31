@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+_______________________________________________________________________________________________________________
+
+    JSON이란?
+
+    JSON(JavaScript Object Notation)의 약자로 JavaScript에서 객체를 만들 때 사용하는 표현식을 의미한다. 
+
+    이 표현식은 사람도 이해하기 쉽고 기계도 이해하기 쉬우면서 데이터의 용량이 작다. 
+
+    이런 이유로 최근에는 JSON이 XML을 대체해서 설정의 저장이나 데이터를 전송등에 많이 사용된다. 
+
+
+    JSON.parse() : 
+        인자로 전달된 문사열을 자바스크립트의 데이터로 변환한다.
+
+    JSON.stringify() :
+        인자로 전달된 자바스크립트의 데이터를 문자열로 변환한다.
+________________________________________________________________________________________________________________
+
+
+
+Ajax와 JSON
+
+
+1)Json이 없을 때
+
+__time.php__
+
+<?php
+$timezones = ["Asia/Seoul", "America/New_York"];
+echo implode(',', $timezones);  >> ["Asia/Seoul","Amercia/New_York"]의 배열을 "Asia/Seoul,America/New_York"의 Text로 바꿈.
+?>
+
+__demo2.html__
+<p id="timezones"></p>
+
+<input type="button" id="execute" value="execute" />
+    
+<script>
+    //php는 배열을 JavaScipt로 직접 전달할수 없으므로 문자로 만들어서 전송한후 JavaScipt로 다시 배열로 만듬(',' 사용)
+    document.querySelector('input').addEventListener('click', function(event){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './time.php');
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4 && xhr.status === 200){
+            var _tzs = xhr.responseText; // _tzs : Asia/Seoul,America/New_York
+            var tzs = _tzs.split(','); //split : text에서 콤마(",")를 찾아서 그 콤마 사이에 있는 문자열을 하나의 배열에 담음 >> ['Aasia/Seoul','America/New_York']
+            var _str = '';
+            for(var i = 0; i< tzs.length; i++){
+                _str += '<li>'+tzs[i]+'</li>';
+            }
+            _str = '<ul>'+_str+'</ul>';
+            document.querySelector('#timezones').innerHTML = _str;
+        }
+    }
+    xhr.send(); 
+}); 
+</script>
+
+
+2)Json을 적용시켰을 때
+
+
+__time2.php__
+
+    <?php
+    $timezones = ["Asia/Seoul", "America/New_York"];
+    header('Content-Type: application/json');
+    echo json_encode($timezones);
+    ?>
+
+__demo2.html__
+
+    <p id="timezones"></p>
+
+    <input type="button" id="execute" value="execute" />
+
+    <script>
+        document.querySelector('input').addEventListener('click', function (event) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', './time2.php');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var _tzs = xhr.responseText;
+                    var tzs = JSON.parse(_tzs); //var tzs = _tzs.spllit(',')처럼 복잡한 코드사용 안해도됨
+                    var _str = '';
+                    for (var i = 0; i < tzs.length; i++) {
+                        _str += '<li>' + tzs[i] + '</li>';
+                    }
+                    _str = '<ul>' + _str + '</ul>';
+                    document.querySelector('#timezones').innerHTML = _str;
+                }
+            }
+
+            xhr.send();
+        }); 
+    </script>
+
+</body>
+</html>

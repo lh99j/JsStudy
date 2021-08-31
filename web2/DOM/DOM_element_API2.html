@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    _______________________________속성API_______________________________
+    속성은 HTML에서 태그명만으로는 부족한 부가적인 설명이라고 할 수 있음.
+
+    ○ Element.getAttribute(name)
+    ○ Element.setAttribute(name, value)
+    ○ Element.hasAttribute(name);
+    ○ Element.removeAttribute(name);
+
+    <a id = "target" href="http://opentutorials.org">opentutorials</a>    <!-- id, href가 속성 -->
+
+    <script>
+        var t = document.getElementById('target');
+
+        console.log(t.getAttribute('href'));  // href라는 속성의 값을 가져온다 >> http://opentutorials.org
+        t.setAttribute('title','opentutorials.org'); // title의 속성의 값을 설정
+        console.log(t.hasAttribute('title'));  // ture , title 속성의 존재여부를 확인
+        t.removeAttribute('tltle');  // title의 속성을 제거
+        console.log(t.hasAttribute('title'));  // false, title 속성의 존재여부를 확인
+    </script>
+
+
+____________________________속성방식 vs 프로퍼티 방식___________________________
+    <p id="target">Hello World!</p>
+
+    <script>
+        var target = document.getElementById('target');
+        target.setAttribute('class','important');  //attribute 방식(속성 방식)
+        target.className = 'important';    //property 방식
+    </script>
+
+
+    <a id = "target" href="./demo1.html">ot</a>
+
+    <script>
+        //현재 웹 페이지가 https://localhost/webjs//demo3.html일때
+
+        var target = document.getElementById('target'); 
+        console.log('target.href',target.href);   // https://localhost/webjs//demo1.html
+        console.log('target.getAttribute("href")', target.getAttribute("href")); // ./demo1.html
+    </script>
+
+</body>
+</html>

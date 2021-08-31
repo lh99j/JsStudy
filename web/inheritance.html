@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    
+    <script>
+        function Person(name){
+            this.name = name;
+        }
+        Person.prototype.name = null;
+        Person.prototype.introduce = function(){
+            return 'My name is ' + this.name;
+        }
+
+        function Programmer(name){
+            this.name = name;
+        }
+        Programmer.prototype = new Person();
+
+        var p1 = new Programmer('egoing');
+        alert(p1.introduce());
+    </script>
+
+
+    <script>
+        function Person(name){
+            this.name = name;
+        }
+        Person.prototype.name = null;
+        Person.prototype.introduce = function(){
+            return 'My name is ' + this.name;
+        }
+
+        function Programmer(name){
+            this.name = name;
+        }
+        Programmer.prototype = new Person();
+        Programmer.prototype.coding = function(){
+            return "hello world";
+        }
+
+        function Designer(name){
+            this.name = name;
+        }
+        Designer.prototype = new Person();
+        Designer.prototype.coding = function(){
+            return "Beautiful";
+        }
+
+        var p1 = new Programmer('egoing');
+        alert(p1.introduce());
+        alert(p1.coding());
+
+        var p2 = new Designer('leezche');
+        alert(p2.introduce());
+        alert(p2.coding());
+    </script>
+
+
+    <script>
+        function Ultra() { }
+        Ultra.prototype.ultraProp = true;
+
+        function Super() { }
+        Super.prototype = new Ultra();
+
+        function Sub() { }
+        Sub.prototype = new Super();
+
+        var o = new Sub();
+        console.log(o.ultraProp);
+    </script>
+
+</body>
+상속 : 객체는 연관된 로직들로 이루어진 작은 프로그램이라고 할 수 있다.
+상속은 객체의 로직을 그대로 물려 받는 또 다른 객체를 만들 수 있는 기능을 의미한다.
+단순히 물려받는 것이라면 의미가 없을 것이다. 기존의 로직을 수정하고 변경해서
+파생된 새로운 객체를 만들 수 있게 한다.
+</html>

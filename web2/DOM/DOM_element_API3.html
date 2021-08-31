@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    ______________________________jQuery 속성 제어 API________________________________
+
+    <a id = "target" href="http://opentutorials.org">opentutorials</a>
+
+    <script>
+        var t =$('#target');
+        console.log(t.attr('href')); //http://opentutorials.org
+        t.attr('title','opentutorials.org'); //title 속성의 값을 설정
+        t.removeAttr('title');  //title 속성을 제거
+    </script>
+
+    <a id="t1" href="./demo.html">opentutorials</a>
+    <input id="t2" type="checkbox" checked="checked"/>
+
+    <script>
+        //현재 문서의 URL이 https://localhost/webjs//demo2.html일때
+        var t1 = $('#t1');
+        console.log(t1.attr('href'));  // ./demo.html  << attribute(attr) 방식
+        console.log(t1.prop('href'));  // https://localhost/webjs//demo.html << property(prop) 방식
+
+        var t2 = $('#t2');
+        console.log(t2.attr('checked'));  // checked
+        console.log(t2.prop('checked'));  // true  << 체크방스가 체크된 상태이면 true
+    </script>
+
+
+    <ul>
+        <li class="marked">HTML</li>
+        <li>CSS</li> 
+        <li id="active">JavaSctipt
+            <ul>
+                <li>JavaSctipt</li>
+                <li class="marked">DOM</li>
+                <li class="marked">BOM</li>
+            </ul>
+        </li>
+    </ul>
+
+
+
+
+    
+    <!-- selector context -->
+    <script>
+        $(".marked","#active").css("background-color","red"); //id가 active인 element 하위에 있는 class가 marked인 element들에게 효과를 줌
+        //첫번째 인자 : 효과를 주고싶은 element 지정, 두번째 인자 selector context >> 첫번째 인자에 해당되는 selector를 제어 하려고 하는 element가 온다
+        $("#active .marked").css("background-color","red");
+    </script>
+
+
+
+    <!-- .find() -->
+
+    <script>
+        $('#active').find('makred').css("background-color","red"); //jQuery객체에 element들 중에서 .marked라는 className을 가지고 있는 element만을 조회
+    </script>
+
+    <script>
+        $('active').css('color','blue').find('.marked').css('background-color','red');
+         //id가 active인 element의 색깔을 blue로 지정하고 id가 active인 element들 중에서 className 이 makred인element의 배경색을 빨강색으로 바꿈
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        html{border:5px solid red;padding:30px;}
+        body{border:5px solid green;padding:30px;}
+        fieldset{border:5px solid blue;padding:30px;}
+        input{border:5px solid black;padding:30px;}
+    </style>
+</head>
+<body>
+
+    _____________________________________이벤트 전파_____________________________________
+
+
+    캡처링(capturing)
+    HTML에 장착된 handler , Body에 장착된 handler , fieldst 에 장착된 handler, input 에 장착된 handler 순(이벤트가 부모에서부터 발생해서 자식)으로 호출되는 것이 캡처링(caturing)
+    
+    <fieldset>
+        <legend>event propagation</legend>
+        <input type="button" id="target" value="target">          
+    </fieldset>
+
+    <script>
+    function handler(event){
+        var phases = ['capturing', 'target', 'bubbling']
+        console.log(event.target.nodeName, this.nodeName, phases[event.eventPhase-1]);
+        //event.target.nodeName : event target의 nodeName >> input  (실제 이벤트가 일어난 node의 name.)
+        //this.nodeName : 현재 event handler가 어떤 element의 소속인지 알려줌 (addEventListner가 등록된 node의 name)
+        //phase[event.eventPhase-1] : eventPhase >> capturing 이면 1, target이면 2 , bubbling이면 3   (ex) capturing이면 phases[1-1] = phases[0] 
+    }
+    document.getElementById('target').addEventListener('click', handler, true); //click이 됬을대 handler 함수 실행 , addEventListener에서 3번째 인자 생략됬을시 false실행
+    document.querySelector('fieldset').addEventListener('click', handler, true);
+    document.querySelector('body').addEventListener('click', handler, true);
+    document.querySelector('html').addEventListener('click', handler, true);
+    </script>
+
+
+
+
+    //bubbling : capturing과 반대의 방향(안에서 밖)
+
+    <script>
+            function handler(event){
+        var phases = ['capturing', 'target', 'bubbling']
+        console.log(event.target.nodeName, this.nodeName, phases[event.eventPhase-1]);
+    }
+    document.getElementById('target').addEventListener('click', handler, false);
+    document.querySelector('fieldset').addEventListener('click', handler, false);
+    document.querySelector('body').addEventListener('click', handler, false);
+    document.querySelector('html').addEventListener('click', handler, false);
+    </script>
+
+
+
+    <script>
+        function handler(event) {
+            var phases = ['capturing', 'target', 'bubbling']
+            console.log(event.target.nodeName, this.nodeName, phases[event.eventPhase - 1]);
+        }
+        function stophandler(event) {
+            var phases = ['capturing', 'target', 'bubbling']
+            console.log(event.target.nodeName, this.nodeName, phases[event.eventPhase - 1]);
+            event.stopPropagation(); //event 전파를 stop한다
+        }
+
+        document.getElementById('target').addEventListener('click', handler, false);
+        document.querySelector('fieldset').addEventListener('click', handler, false);
+        document.querySelector('body').addEventListener('click', stophandler, false); // body부분에서 event 전파를 stop한다, 즉 다음에올 HTML가 출력X
+        document.querySelector('html').addEventListener('click', handler, false);
+    </script>
+
+</body>
+</html> 

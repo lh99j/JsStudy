@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>showmethemoney</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="color.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head> 
+<body>
+    <div id="grid">
+        <div class="titleblank">
+            made by. LHJ
+        </div>
+    <div class="head">
+        <h1 style="text-align: center;">콜백(Call Back)</h1>
+    </div>
+    <div class="menubar">  
+    <ul class="headMenu">
+        <li><a class ="menulink" href="index.html"><세상에서 제일 어려운 콜백..;/></a></li>
+
+    </div>
+    <div class="blank">
+    </div>
+        <div class="sidemenu">
+
+        </div>
+        <div class="maintext" style="font-size: 25px; margin-left: 15px;">
+           콜백을 배우기 앞서 간단히 함수에 대해 알아보자!
+
+           <h2 style="color: powderblue;">자바스크립트에서 함수란?</h2>
+            자바스크립트에서 함수는 <a href="1class.html" style="text-decoration: none; color: green;">일급 객체이다.</a>
+            간단하게 말하면
+            <p style="margin-top: 15px;"> 1. 변수나 데이터안에 담길 수 있고</p>
+            <p style="margin-top: 15px;">2. 매개변수로 전달 할 수 있고</p>
+            <p style="margin-top: 15px;">3. 반환 값으로 사용할 수 있고</p>
+            <p style="margin-top: 15px;">4. 실행도중 생성될 수 있다.</p>
+            
+            콜백 함수는 간단히 말해서 다른함수에 매개변수로 넘겨준 함수를 말한다.
+            <br>매개변수로 넘겨받은 함수는 일단 넘겨 받고, 때가 되면 나중에 호출(Called back)한다는 것이
+            <br>콜백 함수의 개념이다.
+
+            
+            <p style="margin-top: 5px;">예를 들자면 이런 것이다.</p>
+            <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div><div style="line-height:130%">9</div><div style="line-height:130%">10</div><div style="line-height:130%">11</div><div style="line-height:130%">12</div><div style="line-height:130%">13</div><div style="line-height:130%">14</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">function</span>&nbsp;checkGang(count,&nbsp;link,&nbsp;good)&nbsp;{</div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;count&nbsp;<span style="color:#aaffaa"></span><span style="color:#ff3399">&lt;</span>&nbsp;<span style="color:#c10aff">3</span>&nbsp;?&nbsp;link()&nbsp;:&nbsp;good();</div><div style="padding:0 6px; white-space:pre; line-height:130%">}</div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">function</span>&nbsp;linkGang()&nbsp;{</div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#4be6fa">console</span>.log(<span style="color:#ffd500">'1일&nbsp;3깡은&nbsp;기본입니다.&nbsp;아래&nbsp;링크를&nbsp;통해&nbsp;깡을&nbsp;시청해주세요'</span>);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#4be6fa">console</span>.log(<span style="color:#ffd500">'https://youtu.be/xqFvYsy4wE4'</span>);</div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%">}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">function</span>&nbsp;goodGang()&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#4be6fa">console</span>.log(<span style="color:#ffd500">'오늘&nbsp;할당량은&nbsp;모두&nbsp;채우셨습니다!&nbsp;:)'</span>)</div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%">}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%">checkGang(<span style="color:#c10aff">2</span>,&nbsp;linkGang,&nbsp;goodGang);</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+            <p style="margin-top: 5px;">코드를 살펴보면 checkGang, linkGang, goodGang 총 3가지 함수를 선언하고</p>
+            <p style="margin-top: 5px;">checkGang 함수를 호출할 때 매개변수로 count에 숫자값을,</p>
+            <p style="margin-top: 5px;">그리고 link와 good에 각각 linkGang과 goodGang함수를 전달했다.</p>
+            <p style="margin-top: 5px;">여기서 linkGang함수와 goodGang함수가 콜백함수 인 것이다.</p>
+            <p style="margin-top: 5px;">checkGang함수가 먼저 호출되고, 매개변수로 들어온 count의 값에 따라</p>
+            <p style="margin-top: 5px;">linkGang과 goodGang함수 둘 중 한 가지가 나중에 호출된다.</p>
+
+            <h2 style="color: powderblue;">동기 / 비동기</h2>
+            자바스크립트는 동기(synchronous)적이다.
+            <p style=" padding-top: 2px;">이말이 무슨말이냐면 호이스팅이 된 이후로 부터 코드는 우리가 작성한
+                순서에 맞춰서 하나하나씩 동기적으로 실횐된다는 뜻</p>
+            <p style=" padding-top: 2px;">호이스팅이란 var변수나 함수 선언들이 자동적으로 제일 위로 올라가는것이
+                호이스팅이라고 한다</p>
+            <p style=" padding-top: 2px;">호이스팅이 된 이후로부터 코드나 나타나는 순서부터 자동적으로
+                실행된다</p>
+            
+            <div class="colorscripter-code"
+                style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto">
+                <table class="colorscripter-code-table"
+                    style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0"
+                    cellpadding="0">
+                    <tr>
+                        <td style="padding:6px;border-right:2px solid #4f4f4f">
+                            <div
+                                style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%">
+                                <div style="line-height:130%">1</div>
+                                <div style="line-height:130%">2</div>
+                                <div style="line-height:130%">3</div>
+                                <div style="line-height:130%">4</div>
+                                <div style="line-height:130%">5</div>
+                                <div style="line-height:130%">6</div>
+                            </div>
+                        </td>
+                        <td style="padding:6px 0;text-align:left">
+                            <div
+                                style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%">
+                                <div style="padding:0 6px; white-space:pre; line-height:130%"><span
+                                        style="color:#4be6fa">console</span>.log(<span style="color:#ffd500">'1'</span>);</div>
+                                <div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%"><span
+                                        style="color:#4be6fa">console</span>.log(<span style="color:#ffd500">'2'</span>);</div>
+                                <div style="padding:0 6px; white-space:pre; line-height:130%"><span
+                                        style="color:#4be6fa">console</span>.log(<span style="color:#ffd500">'3'</span>);</div>
+                                <div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%"><span
+                                        style="color:#999999">//1</span></div>
+                                <div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">//2</span>
+                                </div>
+                                <div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%"><span
+                                        style="color:#999999">//3</span></div>
+                            </div>
+                        </td>
+                        <td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e"
+                                target="_blank" style="text-decoration:none;color:white"><span
+                                    style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p style=" padding-top: 2px;">이처럼 코드가 작성한 순차적으로 출력되는게 동기</p>
+            <div class="colorscripter-code"
+                style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto">
+                <table class="colorscripter-code-table"
+                    style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0"
+                    cellpadding="0">
+                    <tr>
+                        <td style="padding:6px;border-right:2px solid #4f4f4f">
+                            <div
+                                style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%">
+                                <div style="line-height:130%">1</div>
+                                <div style="line-height:130%">2</div>
+                                <div style="line-height:130%">3</div>
+                                <div style="line-height:130%">4</div>
+                                <div style="line-height:130%">5</div>
+                                <div style="line-height:130%">6</div>
+                                <div style="line-height:130%">7</div>
+                                <div style="line-height:130%">8</div>
+                                <div style="line-height:130%">9</div>
+                            </div>
+                        </td>
+                        <td style="padding:6px 0;text-align:left">
+                            <div
+                                style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%">
+                                <div style="padding:0 6px; white-space:pre; line-height:130%"><span
+                                        style="color:#4be6fa">console</span>.log(<span style="color:#ffd500">'1'</span>);</div>
+                                <div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%"><span
+                                        style="color:#4be6fa">setTimeout</span>(<span style="color:#ff3399">function</span>(){</div>
+                                <div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                        style="color:#4be6fa">console</span>.log(<span style="color:#ffd500">'2'</span>);</div>
+                                <div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%">},<span
+                                        style="color:#c10aff">1000</span>);</div>
+                                <div style="padding:0 6px; white-space:pre; line-height:130%"><span
+                                        style="color:#4be6fa">console</span>.log(<span style="color:#ffd500">'3'</span>);</div>
+                                <div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%"><span
+                                        style="color:#999999">//1</span></div>
+                                <div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">//3</span>
+                                </div>
+                                <div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%"><span
+                                        style="color:#999999">//2</span></div>
+                                <div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div>
+                            </div>
+                        </td>
+                        <td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e"
+                                target="_blank" style="text-decoration:none;color:white"><span
+                                    style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p style=" padding-top: 2px;">이처럼 setTimeout을 통해서 1초뒤에 2가 출력 되는게 비동기</p>
+            <p style=" padding-top: 2px;">여기에서 setTimeout에서 전달하는 함수는 바로 실행되는것이 아니라
+                setTimeout 함수안에서</p>
+            <p style=" padding-top: 2px;">하나의 파라미터 인자로 우리가 지정한, 우리가 만든 함수를 전달해줌
+                그래서 지금 당장 실행하지 않고</p>
+            <p style=" padding-top: 2px;"></p>나중에 1초가 지난다음에 실행해줘! 내함수를 나중에 Call 불러줘!
+            라해서 Call back 함수라함</p>
+            <p style=" padding-top: 2px;">동기적 콜백과 비동기적 콜백이 있지만 이해못해서 Pass</p>
+        </div>
+
+        <div class="bottomm">
+        </div>
+        <div class="finish">
+            
+            @made by. LHJ :D
+        </div>    
+    </div>
+</body> 
+</html> 

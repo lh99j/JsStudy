@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+
+    이벤트 : 이벤트(event)는 어떤 사건을 의미한다.
+    브라우저에서의 사건이란 사용자가 클릭을 했을 '때', 스크롤을 했을 '때', 필드의 내용을 바꾸었을 '때'와 같은 것을 의미한다. 
+
+    <input type="button" onclick="alert(window.location)" value="alert(window.href)" />
+    <input type="button" onclick="window.open('bom.html')" value="window.open('bom.html')" />
+
+    event target : target은 이벤트가 일어날 객체를 의미한다. 아래 코드에서 타겟은 버튼 태그에 대한 객체가 된다. >> event가 일어나는 대상 (input element)
+    
+    event type : 이벤트의 종류를 의미한다. 위의 예제에서는 onclick이 이벤트 타입이다. 그외에도 onchange, mousemove 등 다양한 타입이있음
+
+    event handler : 이벤트가 발생했을 때 동작하는 코드를 의미한다. 위의 예제에서는 alert(window.location)이 여기에 해당한다.
+
+    
+    ______________________________________event등록방식_____________________________________________
+
+    
+    inline방식
+    아래와 같이 input 태그안에 속성값을 지정해줌 (alert("Hello World"))가 inline방식임
+    
+    <!--자기 자신을 참조하는 불편한 방법-->
+    <input type="button" id="target" onclick="alert('Hello world, '+document.getElementById('target').value);" value="button" /> 
+    <!--this를 통해서 간편하게 참조할 수 있다-->
+    <input type="button" onclick="alert('Hello world, '+this.value);" value="button" />
+
+
+
+
+    프로퍼티 리스너 방식
+    <input type="button" id="target" value="button" />
+
+    <script>
+        var t = document.getElementById('target');
+        t.onclick = function () {   //id가 target인 element를 클릭했을때 함수실행 >> HTML과 JavaScript를 분리시킬수 있는 장점
+            alert('Hello world');
+        }
+    </script>
+
+    <input type="button" id="target" value="button" />
+
+    <script>
+        var t = document.getElementById('target');
+        t.onclick = function (event) {
+            //event handler의 첫번째 인자로 event 객체를 전달해줌. 그래서 함수 내에서 event라 하는 내부변수를 통해서 객체 사용가능. 그중 event객체의 target이라는 property는
+            //그 event가 호출된 시점에서 그 event가 어디서 발생하는지 알려주는 property임. 그래서 event.target.value를 하게되면 함수가 호출된(input element)타겟의 value값 출력      
+            alert('Hello world, ' + event.target.value)
+        }
+    </script>
+
+
+
+    addEventListener방식
+
+    <input type="button" id="target" value="button" />
+
+    <script>
+        var t = document.getElementById('target');
+        t.addEventListener('click', function (event) {  //addEventListener의 첫번쨰 인자로 event type을 받음, 즉 click 했을때 두번째 인자 실행
+            alert('Hello world, ' + event.target.value);
+        });
+    </script>
+
+    <input type="button" id="target" value="button" /> 
+
+    <script>
+        var t = document.getElementById('target');
+        t.addEventListener('click', function (event) {
+            alert(1);
+        });
+        t.addEventListener('click', function (event) {
+            alert(2);
+        });  //클릭하면 alert(1) , alert(2)가 출력됨  >> 하나의 이벤트 대상에 복수의 동일 이벤트 타입 리스너를 등록 가능
+    </script>
+
+
+
+    <input type="button" id="target1" value="button1" />
+    <input type="button" id="target2" value="button2" />
+
+    <script>
+        var t1 = document.getElementById('target1');
+        var t2 = document.getElementById('target2');
+        function btn_listener(event) {
+            switch (event.target.id) {
+                case 'target1':
+                    alert(1);
+                    break;
+                case 'target2':
+                    alert(2);
+                    break;
+            }
+        }
+        t1.addEventListener('click', btn_listener);  //alert(1) 출력
+        t2.addEventListener('click', btn_listener);  //alert(2)출력
+    </script>
+
+</body>
+</html>

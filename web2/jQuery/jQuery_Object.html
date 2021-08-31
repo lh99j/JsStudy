@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li> 
+        <li>JavaSctipt</li>
+    </ul>
+
+    <script>
+        var li = $('li'); //$('li')가 담겨있는 element들을(li) li 변수에 유사배열로 담음. jQuery 객체라함, $는 jQuery함수  ex)li[0] = : <li> html </li>
+        li.css('text-decoration','underline'); //내부적으로 li객체의 style을 하나하나 설정 >> 암시적 반복
+        li.css('text-decoration'); //젤 위에있는 li의 element 값을 가져옴
+        li.css('text-decoration','underline').css('color','red'); //연속된 작업 처리 >> 체이닝(chaining)
+   </script>
+
+   <script>
+       var li = $('li');
+       for(var i = 0; i < li.length; i++){
+           console.log(li[i]);  //각각의 element에 대한 element object를 얻어옴, << 실행결과>> <li>html</li>, <li>CSS</li> ... 
+       }
+       
+       for(var i = 0; i < li.length; i++){
+           console.log(li[i].constructor); //li[i]의 객체는 어떤객체인가? >> HTMLLIElement라는 costructor을 가지고 있음 >> 도움객체임 (jQuery객체X)
+       }
+
+       for(var i = 0; i < li.length; i++){
+           console.log(li[i].css('color','red')); //li[i]는 도움객체이므로 jQuery객체의 메소드를 쓸수없음
+       }
+
+       for(var i = 0; i < li.length; i++){
+           console.log($(li[i]).css('color','red')); //이런식으로 li[i]를 $()으로 묶으면 jQuery함수가 되므로 jQuery객체의 메소드 사용가능
+       }
+   </script>
+
+
+
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaSctipt</li>
+    </ul>
+
+
+    <script>
+        var li = $('li');
+        li.map(function(index, elem){  //jQuery객체의 메소드인 map의 인자로 함수를 받음. map에 인자를 전달하면 메소드가 실행되면서 함수실행.
+            console.log(index, elem); //첫번째 인자로는 index값(0,1,2) 두번째 인자(elem)의 값으로는 element가 온다(<li>HTML</li>...)
+            $(elem).css('color','red');
+        })
+    </script>
+</body>
+jQuery 객체 : jQuery 함수의 리턴값으로 jquery 함수를 이용해서 선택한 elemnets들에 대해서 처리할 작업을 property로 가지고 있는 객체.
+</html>

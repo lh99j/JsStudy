@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>showmethemoney</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="color.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head> 
+<body>
+    <div id="grid">
+        <div class="titleblank">
+            made by. LHJ
+        </div>
+    <div class="head">
+        <h1 style="text-align: center;">1급 객체</h1>
+    </div>
+    <div class="menubar">  
+    <ul class="headMenu">
+        <li><a class ="menulink" href="index.html"><1급 객체, 1급 함수></a></li>
+
+    </div>
+    <div class="blank">
+    </div>
+        <div class="sidemenu">
+        <p style="margin-top: 0px;">
+    
+        </ul>
+        </div>
+        <div class="maintext" style="font-size: 25px; margin-left: 15px;">
+            <h2 style="color: powderblue;">일급 객체(First Class Object)</h2>
+            <p style=" padding-top: 2px;">특저 언어에서 1급객체란, 컴퓨터 프로그래밍 언어에서 일반적으로</p>
+            <p style=" padding-top: 2px;"> 다른 객체들에 적용가능한 연산을 모두 지원하는 객체를 가르킨다.</p>
+            <p style=" padding-top: 100px; font-size: 15px;">다음과 같은 조건을 만족할때 일급 객체라 한다</p>
+            <p style=" padding-top: 50px; font-size: 15px;">●변수에 담을수 있다.</p>
+            <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">//&nbsp;변수에&nbsp;함수&nbsp;할당</span></div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">var</span>&nbsp;bar&nbsp;<span style="color:#aaffaa"></span><span style="color:#ff3399">=</span>&nbsp;fucntion()&nbsp;{&nbsp;<span style="color:#ff3399">return</span>&nbsp;<span style="color:#ffd500">'javscript'</span>;&nbsp;};</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#4be6fa">console</span>.log(bar());&nbsp;<span style="color:#999999">//&nbsp;javascript</span></div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+            <p style=" padding-top: 50px; font-size: 15px;">●파라미터로 전달 할 수 있다.</p>
+            <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">function</span>&nbsp;first(a,b,callback){</div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">let</span>&nbsp;v<span style="color:#aaffaa"></span><span style="color:#ff3399">=</span>a<span style="color:#aaffaa"></span><span style="color:#ff3399">*</span>b;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;callback(v);</div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%">}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%">first(<span style="color:#c10aff">1</span>,<span style="color:#c10aff">2</span>,<span style="color:#ff3399">function</span>(v){</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">console</span>.log(v);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#999999">//2</span></div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%">})</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+            <p style=" padding-top: 50px; font-size: 15px;">●반환값(return value)으로 사용할 수 있다.</p>
+            <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div><div style="line-height:130%">9</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">//&nbsp;함수를&nbsp;리턴하는&nbsp;test()&nbsp;함수</span></div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">function</span>&nbsp;test()&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">return</span>&nbsp;<span style="color:#ff3399">function</span>()&nbsp;{</div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">console</span>.log(<span style="color:#ffd500">'javscript'</span>);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;}</div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%">}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="background-color:#303030; padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">var</span>&nbsp;bar&nbsp;<span style="color:#aaffaa"></span><span style="color:#ff3399">=</span>&nbsp;test();</div><div style="padding:0 6px; white-space:pre; line-height:130%">bar();</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+            <p style=" padding-top: 50px; font-size: 18px;">JavaScript에서는 이런 특성 때문에 숫자와 문자처럼 함수를 변수에 저장거나, 파라미터로 전달하고, 함수의 리턴값으로도 사용할 수가 있는 것이다.</p>
+            <p style=" padding-top: 50px; font-size: 30px; color: powderblue;">
+            JavaScript의 함수가 일급 객체이기 때문에 할 수 있는 것</p>
+            <p style=" padding-top: 50px; font-size: 20px;">●콜백 패턴 을 사용할 수 있다.</p>
+            <p style=" padding-top: 25px; font-size: 20px;">●<a href="#" title="고차 함수는 함수를 인자(argument)로 받거나 함수를 리턴하는 함수를 말한다. 이 때 다른 함수(caller)의 인자(argument)로 전달되는 함수를 콜백 함수(callback function)라고 한다." style="text-decoration: none; color: powderblue;">
+                고차함수(High-order function)</a> 를 만들 수 있다.</p>
+            <p style=" padding-top: 25px; font-size: 20px;">●Javascript의 <a href="#" title="제일 간단히 설명하자면 함수내에서 작성된 함수, 자세히는 Javascript의 유효범위, 즉 Scope를 이용하여 생명 주기가 끝난 외부함수의 변수를 참조하는 방법" style="text-decoration: none; color: powderblue;">클로저(closure)</a> 를 사용해 커링(currying) 과 메모이제이션(memoization) 이 가능하다.</p>
+
+        </div>
+
+        <div class="bottomm">
+        </div>
+        <div class="finish">
+            
+            @made by. LHJ :D
+        </div>    
+    </div>
+</body> 
+</html> 

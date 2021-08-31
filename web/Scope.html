@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <!-- 전역변수 -->
+<script>
+    var vscope = 'global';
+    function fscope(){
+        alert(vscope);
+    }
+    fscope();
+</script>//
+
+
+
+<!--     지역변수    -->
+<script>
+    var vscope = 'global';
+    function fscope(){
+        var vscope = 'local';
+        alert(vscope);
+    }
+    fscope();
+</script>
+
+
+<script>
+    function a (){
+    var i = 0;     //결과 01234
+    // i=0;       // 결과 무한반복  << 전역변수인 for문안에 i를 0으로 초기화 하기때문에 무한반복
+}
+for(var i = 0; i < 5; i++){  // for문 안에 i는 어떤함수에도 소속되어 있지 않기때문에 전역변수 
+    a();
+    document.write(i);
+}
+</script>
+
+
+
+<script>
+    for(var i = 0; i < 5; i++){
+        var name = 'coding';
+    }
+    alert(name);
+    // 자바스크립트에서는 자바에서와는 달리, 함수에서 선언된 변수만이 지역변수이고 
+    // 그 외에 경우(for, if ....)는 대부분(var을 사용하지 않는 경우는 예외이므로) 
+    // 지역변수의 의미를 가지지 않는다.
+</script>
+
+
+
+<script>
+    var i = 5;
+
+    function a()
+    {
+        var i = 10;
+        b();
+    }
+
+    function b()
+    {
+        alert(i);
+    }
+
+    a();
+    // a를 호출할 경우 a함수는 다시 b함수를 호출한다. 
+    // b함수에서는 i의 값을 출력하게 되는데...
+    // 여기에서 i의 값이 누가 되냐면 b가 사용되는(호출되는)시점인 a함수,
+    // a함수에서 사용되고 있는 변수(i)인 10이 아니라,
+    // 함수가 정의된 시점에서 사용되는 변수(i)를 사용하므로 5가 결과값이 된다.
+    // 이러한 것을 정적인 유효범위,  또는 Lexical Scoping이라고 한다.
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+    
+    <script>  //문서의 주소 알아내기
+        console.log(location.toString(), location.href); //현재 주소
+        alert(location); // 현재 주소
+        console.log(location.protocol);  // 현재주소의 (http: or https:) 보여줌 
+        console.log(location.host); //현재주소 ex) 네이버의경우 www.naver.com 출력
+        console.log(location.port);// 포트번호
+        console.log(location.pathname); //웹서버가 가지고 있는 정보중에 어떤 구체적인 정보를 요청
+        console.log(location.search); //URL에 물음표 뒤에 있는 파라미터들을 가져올수 있다
+        console.log(location.hash); //UTL에서 #(해쉬)된 부분을 출력
+    </script>
+
+
+    <script>
+        location.href = "웹페이지 주소" //현재문서롤 "웹페이지 주소"로 이동
+        location.reload();  //현재문서를 리로드
+    </script>
+    
+</body>
+</html>

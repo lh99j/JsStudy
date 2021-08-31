@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <article>
+
+    </article>
+    <input type="button" value="fetch" onclick="
+        fetch('CSS').then(function(response){   // 서버에게 html이라는 파일을 요청
+        response.text().then(function(text){
+        document.querySelector('article').innerHTML = text;  // 서버가 응답해 준 데이터가 text에 저장된다.
+            })
+        })
+
+        
+        function callback(){
+            console.log('reponse end');
+        }
+        fetch('html') // fetch는 첫번째 인자로 전달된 data를 서버에게 요청
+        .then(callback);  // fetch API에게 응답이 끝나면 정의한 callback 함수를 실행시켜주라고 함
+        console.log(1);
+        console.log(2);   // 1과 2가 출력된후 응답이 끝나면 그후에 .then()을 통해서 callback 실행(Asynchronous >> 비동기적)
+
+        ">
+</body>
+</html>

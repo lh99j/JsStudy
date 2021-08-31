@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>      
+
+    <input id="target" type="name" />
+    <script>
+        var t = document.getElementById('target');
+        t.addEventListener('blur', function (event) {
+            alert('blur');  // id가 target인 element에 포커스 하지않았을 때
+        });
+        t.addEventListener('focus', function (event) {
+            alert('focus'); // id가 target인 element에 포커스했을 때 
+        });
+    </script>
+</body>
+</html>

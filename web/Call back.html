@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+    <script>
+        function cal(func, num)
+        {
+            return func(num);
+        }
+        function increase(num)
+        {
+            return num + 1;
+        }
+        function decrease(num)
+        {
+            return num - 1;
+        }
+        alert(cal(increase, 1));
+        alert(cal(decrease, 1));
+    </script>
+
+
+
+    <script>
+        function cal(mode) {
+                var funcs = {
+                    'plus': function(left, right) { return left + right },
+                    'minus': function (left, right) { return left - right }
+                }
+                return funcs[mode];
+            }
+            alert(cal('plus')(2, 1));
+            alert(cal('minus')(2, 1));
+            //리턴값으로의 함수의 사용
+    </script>
+
+
+
+    <script>
+        var process = [
+                function (input) { return input + 10; },    // 1 + 10
+                function (input) { return input * input; },  // 11 * 11
+                function (input) { return input / 2; }      // 121 / 2
+            ];
+            var input = 1;
+            for (var i = 0; i < process.length; i++) {
+                input = process[i](input);
+            }
+            alert(input);
+            //배열으로서의 함수의 사용
+    </script>
+
+
+    <script>
+        var numbers = [20,10,9,8,7,6,5,4,3,2,1];
+        function sortfunc(a,b)
+        {
+            // if(a < b){
+            //     return -1;          //return값이 -1일경우 a를 b보다 먼저 배치
+            // }
+            // else if(b < a){
+            //     return 1;           //return값이 1일경우 b를 a보다 먼저 배치
+            // }else{
+            //     return 0;
+            // }
+            return a - b;   
+        }
+        alert(numbers.sort(sortfunc));
+    </script>
+
+
+
+</body>
+콜백: 함수를 인자로 쓰는 기법
+</html>
